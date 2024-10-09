@@ -10,6 +10,7 @@ import r4 from '../public/r4.png';
 import r5 from '../public/r5.png';
 import r6 from '../public/r6.png';
 import animlogo from '../public/anim2.gif';
+import { Newsletter } from './components/newsletter';
 
 export default function Home() {
   return (
@@ -80,7 +81,7 @@ export default function Home() {
           />
         </div>
         <div className='w-full min-h-screen bg-transparent z-1 overflow-y-scroll overflow-x-hidden'>
-          <div className='w-screen relative left-1/4 m-[-24vh] pointer-events-none z-[9]'>
+          <div className='w-full relative left-1/4 m-[-24vh] pointer-events-none z-[9]'>
             <Image
               src={animlogo}
               width={2000}
@@ -88,14 +89,18 @@ export default function Home() {
               style={{
                 position: 'relative',
                 display: 'block',
-                opacity: 0.9,
                 paddingTop: '50px',
               }}
             />
           </div>
-          <div className='columns-3xl text-3xl md:gap-96 text-left w-3/4 left-[12%] relative font-sans2 font-medium '>
-            {'Sign up for our newsletter ->'}
-            {'Every month you will receive a selection of writing, art, and  '}
+          <div className='columns-3xl text-3xl md:gap-96 text-left w-3/4 left-[12%] relative font-sans font-medium '>
+            <p>{'Sign up for our newsletter ->'}</p>
+            <Newsletter />
+            <p className='text-2xl'>
+              {
+                'Every month you will receive a selection of writing, art, and exciting news'
+              }
+            </p>
             <Image
               src={r1}
               placeholder='blur'
@@ -108,41 +113,10 @@ export default function Home() {
               }}
             />
             <div className='w-96 relative z-[1] inline-block'>
-              <p className='text-2xl'>Some text here</p>
-              ompiled in 72ms (587 modules) ✓ Compiled in 71ms (587 modules) ✓
-              Compiled in 104ms (556 modules) ✓ Compiled in 88ms (556 modules)
-              GET / 200 in 42ms ✓ Compiled /favicon.ico in 36ms (324 modules)
-              GET /favicon.ico 200 in 78ms ✓ Compiled in 96ms (587 modules) ✓
-              Compiled in 79ms (587 modules) ✓ Compiled in 79ms (587 modules) ✓
-              Compiled in 82ms (587 modules) ✓ Compiled in 77ms (587 modules) ✓
-              Compiled in 70ms (556 modules) ✓ Compiled in 71ms (556 modules) ✓
-              Compiled in 64ms (556 modules) ✓ Compiled in 83ms (556 modules) ✓
-              Compiled in 74ms (556 modules) ✓
-              <p>
-                {' '}
-                ompiled in 72ms (587 modules) ✓ Compiled in 71ms (587 modules) ✓
-                Compiled in 104ms (556 modules) ✓ Compiled in 88ms (556 modules)
-                GET / 200 in 42ms ✓ Compiled /favicon.ico in 36ms (324 modules)
-                GET /favicon.ico 200 in 78ms ✓ Compiled in 96ms (587 modules) ✓
-                Compiled in 79ms (587 modules) ✓ Compiled in 79ms (587 modules)
-                ✓ Compiled in 82ms (587 modules) ✓ Compiled in 77ms (587
-                modules) ✓ Compiled in 70ms (556 modules) ✓ Compiled in 71ms
-                (556 modules) ✓ Compiled in 64ms (556 modules) ✓ Compiled in
-                83ms (556 modules) ✓ Compiled in 74ms (556 modules) ✓{' '}
-              </p>
+              <p className='text-2xl'>Yes Good is</p>
+              <p> </p>
             </div>
-            <p>
-              {' '}
-              ompiled in 72ms (587 modules) ✓ Compiled in 71ms (587 modules) ✓
-              Compiled in 104ms (556 modules) ✓ Compiled in 88ms (556 modules)
-              GET / 200 in 42ms ✓ Compiled /favicon.ico in 36ms (324 modules)
-              GET /favicon.ico 200 in 78ms ✓ Compiled in 96ms (587 modules) ✓
-              Compiled in 79ms (587 modules) ✓ Compiled in 79ms (587 modules) ✓
-              Compiled in 82ms (587 modules) ✓ Compiled in 77ms (587 modules) ✓
-              Compiled in 70ms (556 modules) ✓ Compiled in 71ms (556 modules) ✓
-              Compiled in 64ms (556 modules) ✓ Compiled in 83ms (556 modules) ✓
-              Compiled in 74ms (556 modules) ✓{' '}
-            </p>
+            <p> </p>
             <div className='w-96 relative'>
               <Image
                 src={r2}
