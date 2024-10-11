@@ -10,7 +10,8 @@ import r4 from '../public/r4.png';
 import r5 from '../public/r5.png';
 import r6 from '../public/r6.png';
 import animlogo from '../public/anim2.gif';
-import { Newsletter } from './components/newsletter';
+import { Newsletter } from './components/Newsletter';
+import { Calendar } from './components/Calendar';
 
 export default function Home() {
   return (
@@ -42,9 +43,37 @@ export default function Home() {
         <div className='flex-initial w-44'>Home ✓</div>|
         <div className='flex-initial w-44'>Shop</div>|
         <div className='flex-initial w-44'>About</div>|
-      </header>
+      </header>{' '}
+      <div className='w-24 h-12 bg-rose-300 fixed bottom-0 right-0 z-50'></div>{' '}
       <main className='flex flex-col w-full h-screen bg-slate-100 text-zinc-900 text-center justify-items-center items-center place-content-center place-items-center overflow-hidden'>
         {' '}
+        <div
+          className='blur-2xl opacity-60 rounded-full overflow-hidden '
+          style={{
+            position: 'absolute',
+            zIndex: 10,
+            bottom: 0,
+            right: 0,
+            width: 222,
+            height: 222,
+            background:
+              'radial-gradient(closest-side, rgba(147, 128, 201, 0.94), rgba(98, 139, 237, 0.82), transparent)',
+          }}
+        ></div>
+        <div
+          className='blur-2xl opacity-30 rounded-full overflow-hidden '
+          style={{
+            position: 'absolute',
+            zIndex: 10,
+            bottom: 10,
+            right: 10,
+            width: 222,
+            height: 111,
+            background:
+              'conic-gradient(rgba(92, 110, 161, 0.8), rgba(233, 38, 50, 0.85), transparent)',
+          }}
+        ></div>
+        <div className=' z-[1] bottom-0 left-1/2 before:absolute pointer-events-none before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[""]  before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-rose-400 before:opacity-50 before:w-48 before:lg:w-96 before:h-screen overflow-hidden'></div>
         <div className='w-full h-screen static justify-items-center items-center place-content-center place-items-center'>
           <Image
             src={bg1}
@@ -80,27 +109,31 @@ export default function Home() {
             }}
           />
         </div>
-        <div className='w-full min-h-screen bg-transparent z-1 overflow-y-scroll overflow-x-hidden'>
-          <div className='w-full relative left-1/4 m-[-24vh] pointer-events-none z-[9]'>
+        <div className='w-full min-h-screen bg-transparent z-1 overflow-y-scroll overflow-x-hidden flex-row justify-center'>
+          <div className='flex justify-center relative pointer-events-none z-[9] m-0 p-0'>
             <Image
               src={animlogo}
-              width={2000}
-              alt='logo'
+              width={1500}
+              alt='animlogo'
+              priority
               style={{
-                position: 'relative',
-                display: 'block',
-                paddingTop: '50px',
+                margin: '0px',
+                zIndex: 9,
               }}
             />
           </div>
-          <div className='columns-3xl text-3xl md:gap-96 text-left w-3/4 left-[12%] relative font-sans font-medium '>
+
+          <div className='text-3xl opacity-90 z-20 text-left top-[40vh] font-sans font-medium p-12 flex-row text-wrap w-96 md:sticky'>
             <p>{'Sign up for our newsletter ->'}</p>
             <Newsletter />
-            <p className='text-2xl'>
+            <p className='text-xl'>
               {
                 'Every month you will receive a selection of writing, art, and exciting news'
               }
             </p>
+          </div>
+
+          <div className='text-3xl md:gap-96 text-left w-3/4 left-1/4 relative top-12 font-sans font-medium p-12'>
             <Image
               src={r1}
               placeholder='blur'
@@ -178,6 +211,7 @@ export default function Home() {
                 }}
               />
             </div>
+            <Calendar />
           </div>
         </div>
       </main>
