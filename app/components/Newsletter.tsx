@@ -32,10 +32,10 @@ export const Newsletter = () => {
         style={{
           pointerEvents: submitted ? 'none' : 'auto',
         }}
-        className='border-2 border-gray-500 p-2 z-10 w-[400px] h-[50px]'
+        className='absolute border-2 border-gray-500 p-2 z-10 w-[400px] h-[50px]'
       />
       <button
-        className='bg-indigo-800 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded z-20 w-[75px] h-[50px]'
+        className='relative bg-indigo-800 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded z-20 w-[75px] h-[50px]'
         onClick={(e) => {
           e.preventDefault();
           const email = document.getElementById('email') as HTMLInputElement;
@@ -50,7 +50,7 @@ export const Newsletter = () => {
             setTimeout(() => {
               receipt.style.height = `${i}rem`;
               receipt.style.top = `${-i}rem`;
-            }, i * 750);
+            }, i * 600);
           }
         }}
       >

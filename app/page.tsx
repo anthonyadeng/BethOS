@@ -41,8 +41,10 @@ export default function Home() {
           />
         </div>
         <div className='flex-initial w-44'>Home ✓</div>|
-        <div className='flex-initial w-44'>Shop</div>|
-        <div className='flex-initial w-44'>About</div>|
+        <a href='/shop' className='flex-initial w-44'>
+          Shop
+        </a>
+        |<div className='flex-initial w-44'>About</div>|
       </header>{' '}
       <div className='w-24 h-12 bg-rose-300 fixed bottom-0 right-0 z-50'></div>{' '}
       <main className='flex flex-col w-full h-screen bg-slate-100 text-zinc-900 text-center justify-items-center items-center place-content-center place-items-center overflow-hidden'>
@@ -104,7 +106,7 @@ export default function Home() {
               position: 'absolute',
               right: '0px',
               bottom: '0px',
-              zIndex: 9,
+              zIndex: 40,
               pointerEvents: 'none',
             }}
           />
@@ -123,7 +125,7 @@ export default function Home() {
             />
           </div>
 
-          <div className='text-3xl opacity-90 z-20 text-left top-[40vh] font-sans font-medium p-12 flex-row text-wrap w-96 md:sticky'>
+          <div className='text-3xl opacity-90 z-20 text-left top-[40vh] font-sans font-medium p-12 flex-row text-wrap w-96 lg:sticky'>
             <p>{'Sign up for our newsletter ->'}</p>
             <Newsletter />
             <p className='text-xl'>
@@ -133,7 +135,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className='text-3xl md:gap-96 text-left w-3/4 left-1/4 relative top-12 font-sans font-medium p-12'>
+          <div className='text-3xl text-left w-full lg:w-[90vw] lg:left-[25%] relative top-12 font-sans font-medium p-12'>
             <Image
               src={r1}
               placeholder='blur'
@@ -161,6 +163,9 @@ export default function Home() {
                   pointerEvents: 'none',
                 }}
               />
+            </div>{' '}
+            <div className='z-20 top-[10vh] lg:sticky'>
+              <Calendar />
             </div>
             <div className='w-96 left-[15vw] relative z-0'>
               <Image
@@ -211,7 +216,6 @@ export default function Home() {
                 }}
               />
             </div>
-            <Calendar />
           </div>
         </div>
       </main>
