@@ -45,6 +45,9 @@ export default function Home() {
           Shop
         </a>
         |<div className='flex-initial w-44'>About</div>|
+        <a href='/cms' className='flex-initial w-44'>
+          cms
+        </a>
       </header>{' '}
       <div className='w-24 h-12 bg-rose-300 fixed bottom-0 right-0 z-50'></div>{' '}
       <main className='flex flex-col w-full h-screen bg-slate-100 text-zinc-900 text-center justify-items-center items-center place-content-center place-items-center overflow-hidden'>
