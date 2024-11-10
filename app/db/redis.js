@@ -20,17 +20,30 @@ export async function addCMSType(key, value) {
     await client.hSet('Types', { ...prevTypes, [key]: value });
     await client.disconnect();
   } catch (err) {
+    await client.disconnect();
     console.log('Error in addCMSType', err);
   }
 }
 
-export async function getCMSTypes(key) {
+export async function getCMSTypes() {
   try {
     await client.connect();
     const value = await client.hGetAll('Types');
     await client.disconnect();
     return JSON.stringify(value);
   } catch (err) {
+    await client.disconnect();
     console.log('Error in getCMSType', err);
+  }
+}
+
+export async function deleteType(field) {
+  try {
+    await client.connect();
+    await client.hDel('Types', field);
+    await client.disconnect();
+  } catch (err) {
+    await client.disconnect();
+    console.log('Error in deleteKey', err);
   }
 }

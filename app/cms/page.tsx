@@ -3,21 +3,12 @@ import headerlogo from '../../public/1.png';
 import yeslogo from '../../public/yes.png';
 import goodlogo from '../../public/good.png';
 import bg1 from '../../public/bg1.png';
-import Cms from '../components/Cms';
+import CmsTypes from '../components/CmsTypes';
+import CmsDash from '../components/CmsDash';
 export default function ShopHome() {
   return (
     <div>
       <header className='flex flex-row w-full  h-24  text-zinc-900 bg-slate-50 bg-opacity-50 fixed justify-items-center text-center items-center z-50 backdrop-blur-sm font-mono text-xl'>
-        <Image
-          src={yeslogo}
-          placeholder='blur'
-          alt='logo'
-          style={{
-            marginTop: '25rem',
-            position: 'absolute',
-            pointerEvents: 'none',
-          }}
-        />
         <div className='flex-initial w-20'>
           <Image
             src={headerlogo}
@@ -60,22 +51,10 @@ export default function ShopHome() {
           }}
           priority
         />
-
-        <Image
-          src={goodlogo}
-          placeholder='blur'
-          alt='logo'
-          style={{
-            position: 'absolute',
-            right: '0px',
-            bottom: '0px',
-            zIndex: 9,
-            pointerEvents: 'none',
-          }}
-        />
       </div>
       <div className='absolute left-1/2 top-1/2 text-zinc-800'>
-        <Cms />
+        <br />
+        <CmsDash />
       </div>
     </div>
   );
