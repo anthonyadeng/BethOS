@@ -11,7 +11,7 @@ import { getCMSTypes } from '../db/redis';
 import CmsTypes from './CmsTypes';
 import CmsItems from './CmsItems';
 interface TypeContextValue {
-  types: React.ReactNode[];
+  types: { [key: string]: string };
   setTypes: Dispatch<SetStateAction<React.ReactNode[]>>;
   getCMSTypes2: () => Promise<void>;
 }
@@ -19,7 +19,7 @@ interface TypeContextValue {
 const TypeContext = createContext<TypeContextValue | null>(null);
 
 export default function CmsDash() {
-  const [types, setTypes] = useState<React.ReactNode[]>([]);
+  const [types, setTypes] = useState({});
 
   async function getCMSTypes2() {
     const types = await getCMSTypes();
