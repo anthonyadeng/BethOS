@@ -59,3 +59,15 @@ export async function addItem(type, key, value) {
     console.log('Error in addItem', err);
   }
 }
+
+export async function getItems(type) {
+  try {
+    await client.connect();
+    const value = await client.hGetAll(type);
+    await client.disconnect();
+    return JSON.stringify(value);
+  } catch (err) {
+    await client.disconnect();
+    console.log('Error in getItems', err);
+  }
+}

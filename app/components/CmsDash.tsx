@@ -6,6 +6,7 @@ import {
   createContext,
   Dispatch,
   SetStateAction,
+  useRef,
 } from 'react';
 import { getCMSTypes } from '../db/redis';
 import CmsTypes from './CmsTypes';
@@ -14,6 +15,7 @@ interface TypeContextValue {
   types: { [key: string]: string };
   setTypes: Dispatch<SetStateAction<React.ReactNode[]>>;
   getCMSTypes2: () => Promise<void>;
+  itemsCache: { [key: string]: string };
 }
 
 const TypeContext = createContext<TypeContextValue | null>(null);
@@ -21,6 +23,7 @@ const TypeContext = createContext<TypeContextValue | null>(null);
 export default function CmsDash() {
   const [types, setTypes] = useState({});
   const [view, setView] = useState('types');
+  const itemsCache = useRef<{ [key: string]: string }>({});
   async function getCMSTypes2() {
     const types = await getCMSTypes();
     if (types) {
@@ -31,7 +34,9 @@ export default function CmsDash() {
     setView(e.currentTarget.id);
   }
   return (
-    <TypeContext.Provider value={{ types, setTypes, getCMSTypes2 }}>
+    <TypeContext.Provider
+      value={{ types, setTypes, getCMSTypes2, itemsCache: itemsCache.current }}
+    >
       <div className='absolute w-full h-full'>
         <div
           id='menu'

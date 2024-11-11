@@ -1,10 +1,17 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTypeContext } from './CmsDash';
-import { addItem } from '../db/redis';
+import { addItem, getItems } from '../db/redis';
+
 export default function CmsItems() {
   const { types } = useTypeContext();
   const [selectedType, setSelectedType] = useState<string>('');
+  const [items, setItems] = useState<{
+    [key: string]: { [key: string]: string };
+  }>({});
   const fieldData = useRef<{ [key: string]: string }>({});
+  const itemsCache = useRef<{
+    [key: string]: { [key: string]: { [key: string]: string } };
+  }>({});
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addItem(
@@ -13,7 +20,18 @@ export default function CmsItems() {
       JSON.stringify(fieldData.current)
     );
   };
-
+  useEffect(() => {
+    async function fetchItemsfromDB() {
+      const items = await getItems(selectedType);
+      if (items) {
+        itemsCache.current[selectedType] = JSON.parse(items);
+      }
+    }
+    if (itemsCache.current[selectedType] == undefined) {
+      fetchItemsfromDB();
+    }
+    setItems(itemsCache.current.selectedType);
+  }, [selectedType]);
   return (
     <div className='flex-row h-full w-full align-middle justify-center p-96'>
       <div className='flex'>
@@ -51,9 +69,25 @@ export default function CmsItems() {
               ))}
             <button type='submit'>Submit</button>
           </form>
-          {JSON.stringify(fieldData.current)}
+          {items &&
+            Object.keys(items).map((item) => (
+              <CMSItem key={item} {...items[item]} />
+            ))}
         </div>
       </div>
+    </div>
+  );
+}
+
+function CMSItem(fields: { [key: string]: string }) {
+  return (
+    <div>
+      <div className='text-2xl font-bold'>{fields['name']}</div>
+      {Object.keys(fields)
+        .filter((val) => val !== 'name')
+        .map((field) => (
+          <div key={field}>{fields[field]}</div>
+        ))}
     </div>
   );
 }
