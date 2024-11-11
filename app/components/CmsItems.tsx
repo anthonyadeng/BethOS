@@ -15,40 +15,44 @@ export default function CmsItems() {
   };
 
   return (
-    <div>
-      <select
-        onChange={(e) => {
-          setSelectedType(e.target.value);
-        }}
-      >
-        {Object.keys(types).map((type) => (
-          <option value={type}>{type}</option>
-        ))}
-      </select>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor='name'>Name:</label>
-          <input
-            autoComplete='off'
-            onChange={(e) => {
-              fieldData.current['name'] = e.target.value;
-            }}
-          />
-          {selectedType &&
-            JSON.parse(types[selectedType]).map((item: string) => (
-              <div>
-                <label htmlFor={'item' + item}>{item}:</label>
-                <input
-                  autoComplete='off'
-                  onChange={(e) => {
-                    fieldData.current[item] = e.target.value;
-                  }}
-                />
-              </div>
-            ))}
-          <button type='submit'>Submit</button>
-        </form>
-        {JSON.stringify(fieldData.current)}
+    <div className='flex-row h-full w-full align-middle justify-center p-96'>
+      <div className='flex'>
+        <select
+          onChange={(e) => {
+            setSelectedType(e.target.value);
+          }}
+        >
+          {Object.keys(types).map((type) => (
+            <option value={type} key={'type' + type}>
+              {type}
+            </option>
+          ))}
+        </select>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor='name'>Name:</label>
+            <input
+              autoComplete='off'
+              onChange={(e) => {
+                fieldData.current['name'] = e.target.value;
+              }}
+            />
+            {selectedType &&
+              JSON.parse(types[selectedType]).map((item: string) => (
+                <div key={'item' + item}>
+                  <label htmlFor={'item' + item}>{item}:</label>
+                  <input
+                    autoComplete='off'
+                    onChange={(e) => {
+                      fieldData.current[item] = e.target.value;
+                    }}
+                  />
+                </div>
+              ))}
+            <button type='submit'>Submit</button>
+          </form>
+          {JSON.stringify(fieldData.current)}
+        </div>
       </div>
     </div>
   );

@@ -20,28 +20,62 @@ const TypeContext = createContext<TypeContextValue | null>(null);
 
 export default function CmsDash() {
   const [types, setTypes] = useState({});
-
+  const [view, setView] = useState('types');
   async function getCMSTypes2() {
     const types = await getCMSTypes();
     if (types) {
       setTypes(JSON.parse(types));
     }
   }
-
+  function handleClickView(e: React.MouseEvent<HTMLButtonElement>) {
+    setView(e.currentTarget.id);
+  }
   return (
     <TypeContext.Provider value={{ types, setTypes, getCMSTypes2 }}>
-      <div>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            getCMSTypes2();
-          }}
+      <div className='absolute w-full h-full'>
+        <div
+          id='menu'
+          className='absolute left-0 h-full w-24 bg-slate-50 py-24'
         >
-          Get Test
-        </button>
+          <button
+            id='types'
+            onClick={(e) => handleClickView(e)}
+            className='w-full h-24 border-y p-0 m-0 bg-zinc-50 text-zinc-800 font-normal border-zinc-800'
+          >
+            Types
+          </button>
+          <button
+            id='items'
+            onClick={(e) => handleClickView(e)}
+            className='w-full h-24 border-b p-0 m-0 bg-zinc-50 text-zinc-800 font-normal border-zinc-800'
+          >
+            Items
+          </button>
+
+          <button
+            id='settings'
+            onClick={(e) => handleClickView(e)}
+            className='w-full h-24 border-b p-0 m-0 bg-zinc-50 text-zinc-800 font-normal border-zinc-800'
+          >
+            Settings
+          </button>
+          <button
+            id='refresh'
+            className='w-full h-24 border-b  p-0 m-0 bg-zinc-50 text-zinc-800 font-normal border-zinc-800'
+            onClick={(e) => {
+              e.preventDefault();
+              getCMSTypes2();
+            }}
+          >
+            Refresh
+          </button>
+        </div>
         {JSON.stringify(types)}
-        <CmsTypes />
-        <CmsItems />
+        <div className='h-1/2 w-1/2 relative top-1/4 left-1/4 '>
+          {view === 'types' && <CmsTypes />}
+          {view === 'items' && <CmsItems />}
+          {view === 'settings' && <div>Settings</div>}
+        </div>
       </div>
     </TypeContext.Provider>
   );
