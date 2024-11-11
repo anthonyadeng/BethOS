@@ -47,3 +47,15 @@ export async function deleteType(field) {
     console.log('Error in deleteKey', err);
   }
 }
+
+export async function addItem(type, key, value) {
+  try {
+    await client.connect();
+    const prevItems = await client.hGetAll(type);
+    await client.hSet(type, { ...prevItems, [key]: value });
+    await client.disconnect();
+  } catch (err) {
+    await client.disconnect();
+    console.log('Error in addItem', err);
+  }
+}

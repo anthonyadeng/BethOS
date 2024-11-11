@@ -52,7 +52,7 @@ export default function ShopHome() {
           priority
         />
       </div>
-      <div className='absolute left-1/2 top-1/2 text-zinc-800'>
+      <div className='absolute left-1/2 top-1/4 text-zinc-800'>
         <br />
         <CmsDash />
       </div>

@@ -47,7 +47,6 @@ export default function CmsDash() {
   );
 }
 
-// Example of how to use the context in a child component
 export function useTypeContext() {
   const context = useContext(TypeContext);
   if (!context) {

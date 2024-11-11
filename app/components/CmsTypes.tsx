@@ -13,12 +13,7 @@ export default function CmsTypes() {
     e.preventDefault();
     addCMSType(name, JSON.stringify(fields));
   };
-  // async function getCMSTypes2() {
-  //   const types = await getCMSTypes();
-  //   if (types) {
-  //     setTypes(JSON.parse(types));
-  //   }
-  // }
+
   return (
     <div>
       <h1>Add Type</h1>
@@ -62,15 +57,7 @@ export default function CmsTypes() {
         <button type='submit'>Submit</button>
         {fields}
       </form>
-      {/* 
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          getCMSTypes2();
-        }}
-      >
-        Get Test
-      </button> */}
+
       {Object.entries(types).map(([key, value]) => (
         <div key={key}>
           <button
