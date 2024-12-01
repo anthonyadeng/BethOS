@@ -31,7 +31,6 @@ const Carousel: React.FC = () => {
             }}
           />
         ))}
-        <div className='h-24 w-full absolute bottom-0 bg-black'></div>
       </div>
     </div>
   );
