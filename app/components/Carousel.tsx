@@ -1,12 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
-import './Carousel.css';
 import Image from 'next/image';
 
 const Carousel: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
   const images = [
     '/carousel/b1.JPG',
     '/carousel/b2.PNG',
@@ -15,26 +11,12 @@ const Carousel: React.FC = () => {
     '/carousel/b5.png',
     '/carousel/b6.png',
   ];
+  const translateXValues = ['0', '-110', '85', '-40', '100', '-100'];
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const handlePrevious = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
-  };
+  const translateYValues = [10, 100, 150, 175, 225, 300];
 
   return (
-    <div className='carousel font-sans text-zinc-800 h-[750px] w-[600px] relative overflow-hidden m-auto'>
-      <button
-        onClick={handlePrevious}
-        className='pointer-events-auto
-      absolute top-1/2 -translate-y-1/2'
-      >
-        {'<-'}
-      </button>
+    <div className=' font-sans text-zinc-800 h-screen w-1/2 relative m-auto pointer-events-none pl-24 py-4'>
       <div className='image-stack'>
         {images.map((image, index) => (
           <Image
@@ -43,23 +25,14 @@ const Carousel: React.FC = () => {
             width={384}
             src={image}
             alt={`Slide ${index}`}
-            className={`carousel-image absolute top-0 left-0 opacity-20 active:opacity-100 transition-opacity ${
-              index === currentIndex ? 'active' : ''
-            }`}
+            className={`m-24 mb-24 absolute z-10  shadow-orange-600 shadow-2xl`}
             style={{
-              transform: `translateX(${(index - currentIndex) * 100}%)`,
-              transition: 'transform 0.5s ease-in-out',
+              transform: `translateX(${translateXValues[index]}%) translateY(${translateYValues[index]}%)`,
             }}
           />
         ))}
+        <div className='h-24 w-full absolute bottom-0 bg-black'></div>
       </div>
-      <button
-        onClick={handleNext}
-        className='pointer-events-auto
-      absolute top-1/2 -translate-y-1/2'
-      >
-        {' ->'}
-      </button>
     </div>
   );
 };
