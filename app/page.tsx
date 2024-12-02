@@ -16,7 +16,6 @@ export default function Home() {
       return element.textContent || element.innerText || '';
     };
     const dcode = code.map((c) => String.fromCharCode(c)).join('');
-    console.log(dcodeHypertext(email1));
     const ans = `${dcodeHypertext(email1)}${dcodeHypertext(
       email2
     )}${dcode}${dcodeHypertext(email3)}`;
