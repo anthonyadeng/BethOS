@@ -12,7 +12,7 @@ export default function Home() {
             <Image
               src={abstractlogo}
               alt='logo'
-              layout='fill'
+              fill
               className='object-fill pointer-events-none object-left'
             />
           </div>
@@ -20,15 +20,15 @@ export default function Home() {
         <div className=' text-blue-600 font-sans text-2xl text-left sm:text-6xl mx-4'>
           Bethany Hughes
         </div>
-        <div className='w-48 h-full absolute pr-2 m-0 right-0 flex'>
-          <div className='border-l w-full h-full relative items-center justify-center font-sans text-blue-500 text-3xl hover:bg-zinc-300 flex'>
+        <div className='w-24 h-full absolute pr-2 m-0 right-0 flex'>
+          {/* <div className='border-l w-full h-full relative items-center justify-center font-sans text-blue-500 text-3xl hover:bg-zinc-300 flex'>
             @
-          </div>
+          </div> */}
           <div className='border-l w-full h-full relative'>
             <Image
               src={headerlogo}
               alt='logo'
-              layout='fill'
+              fill
               className='object-contain pointer-events-none object-center'
             />
           </div>
