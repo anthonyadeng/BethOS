@@ -6,7 +6,7 @@ import e from '../public/e.png';
 
 export default function Home() {
   const handleClick = () => {
-    const email = `${process.env.A}${process.env.B}il.c${process.env.C}`;
+    const email = `${process.env.FIRST}${process.env.SECOND}il.c${process.env.THIRD}`;
     window.location.href = `mailto:${email.replace(/&#(\d+);/g, (match, dec) =>
       String.fromCharCode(dec)
     )}`;
