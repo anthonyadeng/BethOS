@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import headerlogo from '../public/newheader2.png';
 import abstractlogo from '../public/newheader3.png';
-import Carousel from './components/Carousel';
 import e from '../public/e.png';
 
 export default function Home() {
@@ -29,9 +28,6 @@ export default function Home() {
           Bethany Hughes
         </div>
         <div className='w-24 h-full absolute pr-2 m-0 right-0 flex'>
-          {/* <div className='border-l w-full h-full relative items-center justify-center font-sans text-blue-500 text-3xl hover:bg-zinc-300 flex'>
-            @
-          </div> */}
           <div className='border-l w-full h-full relative'>
             <Image
               src={headerlogo}
@@ -72,12 +68,6 @@ export default function Home() {
         <div className=' z-10 pointer-events-none bottom-0 left-1/2 before:absolute before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[""]  before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-rose-400 before:opacity-50 before:w-48 before:lg:w-96 before:h-screen overflow-hidden'></div>
         <div className='w-full h-screen static justify-items-center items-center place-content-center place-items-center'></div>
         <div className='w-full min-h-screen bg-transparent z-1 overflow-y-scroll overflow-x-hidden flex-row justify-center'>
-          {/* <div
-            id='carousel'
-            className=' top-1/4 right-1/2 m-0 overflow-scroll w-screen h-auto z-50'
-          >
-            <Carousel />
-          </div> */}
           <div className='text-xl sm:text-3xl  right-0 text-left absolute bottom-0 font-sans font-medium py-16 px-12 w-1/2 lg:w-1/3'>
             <p>{'Bethany Hughes (b. 1992, Canada) '}</p>
             <p className='text-sm sm:text-lg'>
