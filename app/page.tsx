@@ -67,7 +67,8 @@ export default function Home() {
         <div className='w-full h-screen static justify-items-center items-center place-content-center place-items-center'></div>
         <div className='w-full min-h-screen bg-transparent z-1 overflow-y-scroll overflow-x-hidden flex-row justify-center'>
           <div className='text-2xl sm:text-3xl  right-0 text-left absolute bottom-0 font-sans font-medium py-16 px-12 w-3/4 sm:w-1/2 lg:w-1/3'>
-            <p>{'Bethany Hughes (b. 1992, Canada) '}</p>
+            <p>{'Bethany Hughes'} </p>
+            <p>{'(b. 1992, Canada) '}</p>
             <p className='text-base sm:text-lg'>
               {
                 '-> Conservation Assistant at Athena Art Conservation in NYC, focusing on paintings and paper artworks.'
