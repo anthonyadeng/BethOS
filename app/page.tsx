@@ -6,10 +6,20 @@ import e from '../public/e.png';
 
 export default function Home() {
   const handleClick = () => {
-    const email = `${process.env.FIRST}${process.env.SECOND}il.c${process.env.THIRD}`;
-    window.location.href = `mailto:${email.replace(/&#(\d+);/g, (match, dec) =>
-      String.fromCharCode(dec)
-    )}`;
+    const email1 = `${process.env.NEXT_PUBLIC_FIRST}`;
+    const email2 = `${process.env.NEXT_PUBLIC_SECOND}`;
+    const email3 = `${process.env.NEXT_PUBLIC_THIRD}`;
+    const code = [105, 108, 46, 99];
+    const dcodeHypertext = (text: string) => {
+      const element = document.createElement('div');
+      element.innerHTML = text;
+      return element.textContent || element.innerText || '';
+    };
+    const dcode = code.map((c) => String.fromCharCode(c)).join('');
+    const ans = `${dcodeHypertext(email1)}${dcodeHypertext(
+      email2
+    )}${dcode}${dcodeHypertext(email3)}`;
+    window.location.href = `mailto:${ans}`;
   };
   return (
     <div>
@@ -81,8 +91,7 @@ export default function Home() {
                 alt='e'
                 onClick={handleClick}
                 fill
-                objectFit='contain'
-                className='pointer-events-auto'
+                className='pointer-events-auto object-contain'
               />
             </div>
           </div>
