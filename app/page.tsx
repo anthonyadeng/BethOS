@@ -1,9 +1,17 @@
+'use client';
 import Image from 'next/image';
 import headerlogo from '../public/newheader2.png';
 import abstractlogo from '../public/newheader3.png';
 import Carousel from './components/Carousel';
+import e from '../public/e.png';
 
 export default function Home() {
+  const handleClick = () => {
+    const email = `${process.env.A}${process.env.B}il.c${process.env.C}`;
+    window.location.href = `mailto:${email.replace(/&#(\d+);/g, (match, dec) =>
+      String.fromCharCode(dec)
+    )}`;
+  };
   return (
     <div>
       <header className='flex flex-row w-full h-16 sm:h-24  text-zinc-900 bg-slate-50 bg-opacity-30 fixed justify-items-center text-center items-center z-50 border-b border-zinc-200 backdrop-blur-sm font-mono text-xl'>
@@ -77,6 +85,16 @@ export default function Home() {
                 '-> Conservation Assistant at Athena Art Conservation in NYC, focusing on paintings and paper artworks.'
               }
             </p>
+            <div className='relative w-1/2 h-12 p-0 min-w-36'>
+              <Image
+                src={e}
+                alt='e'
+                onClick={handleClick}
+                fill
+                objectFit='contain'
+                className='pointer-events-auto'
+              />
+            </div>
           </div>
         </div>
       </main>
