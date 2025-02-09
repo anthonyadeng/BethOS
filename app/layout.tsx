@@ -32,7 +32,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Bethany Hughes',
+  // title: 'Bethany Hughes',
+  title: '',
   description: '',
 };
 
@@ -44,9 +45,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${roboto_mono.variable} ${afacad.variable} antialiased`}
+      // className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${roboto_mono.variable} ${afacad.variable} antialiased`}
       >
-        {children}
+        {/* {children} */}
+        <div></div>
       </body>
     </html>
   );
