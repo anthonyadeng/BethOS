@@ -1,35 +1,35 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
+// import localFont from 'next/font/local';
 import './globals.css';
-import { Inter, Roboto_Mono, Afacad } from 'next/font/google';
+// import { Inter, Roboto_Mono, Afacad } from 'next/font/google';
 
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-});
-const afacad = Afacad({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-afacad',
-});
+// const inter = Inter({
+//   subsets: ['latin'],
+//   display: 'swap',
+//   variable: '--font-inter',
+// });
+// const afacad = Afacad({
+//   subsets: ['latin'],
+//   display: 'swap',
+//   variable: '--font-afacad',
+// });
 
-const roboto_mono = Roboto_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto-mono',
-});
+// const roboto_mono = Roboto_Mono({
+//   subsets: ['latin'],
+//   display: 'swap',
+//   variable: '--font-roboto-mono',
+// });
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-});
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
-});
+// const geistSans = localFont({
+//   src: './fonts/GeistVF.woff',
+//   variable: '--font-geist-sans',
+//   weight: '100 900',
+// });
+// const geistMono = localFont({
+//   src: './fonts/GeistMonoVF.woff',
+//   variable: '--font-geist-mono',
+//   weight: '100 900',
+// });
 
 export const metadata: Metadata = {
   // title: 'Bethany Hughes',
@@ -37,9 +37,8 @@ export const metadata: Metadata = {
   description: '',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+export default function RootLayout({}: // children,
+Readonly<{
   children: React.ReactNode;
 }>) {
   return (
